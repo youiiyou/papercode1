@@ -18,6 +18,7 @@ print(f"用设备: {device}")
 
 # 加载模型和预处理方式
 model, preprocess = clip.load("ViT-B/16", device=device)
+model = model.float()  # 转成单精度（默认是半精度 fp16，和输入对不上会报错）
 model.eval()  # 切换到"推理模式"（不训练，只看结果）
 
 print("\n=== 模型加载完成 ===")
